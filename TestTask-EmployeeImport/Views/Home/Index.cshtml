@@ -3,6 +3,24 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div class="container mt-5">
+        <h2>Employee Import</h2>
+
+        <form asp-controller="Home" asp-action="UploadCsv" method="post" enctype="multipart/form-data" class="mb-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="file" class="form-label">Select CSV File:</label>
+                        <input type="file" name="file" class="form-control" accept=".csv" required />
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary w-100">Execute Import</button>
+                </div>
+            </div>
+        </form>
+
+        <div id="gridContainer">
+        </div>
+    </div>
 </div>

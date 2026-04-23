@@ -6,12 +6,21 @@ namespace TestTask_EmployeeImport.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        [HttpPost]
+        public IActionResult UploadCSV(IFormFile file)
         {
-            return View();
-        }
+            if(file == null || file.Length == 0)
+                return BadRequest("No file uploaded.");
 
-        public IActionResult Privacy()
+
+
+
+            return Ok();
+        }
+        
+        
+        
+        public IActionResult Index()
         {
             return View();
         }
