@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using TestTask_EmployeeImport.Models;
+using TestTask_EmployeeImport.Services;
+
 namespace TestTask_EmployeeImport
 {
     public class Program
@@ -9,7 +13,12 @@ namespace TestTask_EmployeeImport
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
-            var app = builder.Build();
+			builder.Services.AddDbContext<AppDbContext>(options =>
+	        options.UseSqlServer(@"Server=localhost\SQLEXPRESS;Database=Employee_Data_Import_DB;Trusted_Connection=True;TrustServerCertificate=True"));
+
+			builder.Services.AddScoped<DataImportService>();
+
+			var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
