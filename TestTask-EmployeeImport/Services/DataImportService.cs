@@ -2,9 +2,14 @@
 
 namespace TestTask_EmployeeImport.Services
 {
+    /// <summary>
+    /// Provides functionality to parse employee data 
+	/// from CSV sources and import it into the system.
+    /// </summary>
+    
 	public class DataImportService
 	{
-		public async Task FillEmployeeListAsync(IFormFile file, List<Employee> employees)
+		public async Task FillEmployeeListAsync(IFormFile file, List<Employee> employees) // <-- This method takes data from csv file and put to collection
 		{
 			using (StreamReader reader = new StreamReader(file.OpenReadStream()))
 			{

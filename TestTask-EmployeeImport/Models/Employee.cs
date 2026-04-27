@@ -1,5 +1,10 @@
 ﻿namespace TestTask_EmployeeImport.Models
 {
+	/// <summary>
+	/// This entity represent employee record, 
+	/// used for mapping data from CSV files 
+	/// to the database.
+	/// </summary>
 	public class Employee
 	{
 		public Employee(

@@ -14,9 +14,17 @@ namespace TestTask_EmployeeImport
             builder.Services.AddControllersWithViews();
 
 			builder.Services.AddDbContext<AppDbContext>(options =>
-	        options.UseSqlServer(@"Server=localhost\SQLEXPRESS;Database=Employee_Data_Import_DB;Trusted_Connection=True;TrustServerCertificate=True"));
+	        options.UseSqlServer(@"
+                Server=localhost\SQLEXPRESS;
+                Database=Employee_Data_Import_DB;
+                Trusted_Connection=True;
+                TrustServerCertificate=True
+                "));
+            // Add database context 
 
 			builder.Services.AddScoped<DataImportService>();
+            // Data import service, I connected it to DI(Dependency injection)
+            // to make clear, and clean architecture code 
 
 			var app = builder.Build();
 

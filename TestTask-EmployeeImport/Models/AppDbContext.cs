@@ -2,6 +2,9 @@
 
 namespace TestTask_EmployeeImport.Models
 {
+	/// <summary>
+	/// Database context class.
+	/// </summary>
 	public class AppDbContext : DbContext
 	{
 		public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
